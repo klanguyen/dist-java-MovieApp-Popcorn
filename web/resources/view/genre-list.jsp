@@ -26,13 +26,13 @@
     <!--nav bar-->
     <ul class="nav nav-pills nav-fill justify-content-center">
         <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="index.jap">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="genre-list.html">Genres</a>
+            <a class="nav-link active" href="genre-list.jap">Genres</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="action.html">Recommendations</a>
+            <a class="nav-link" href="action.jap">Recommendations</a>
         </li>
     </ul>
     <!--content-->

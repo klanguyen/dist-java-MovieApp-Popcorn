@@ -28,13 +28,13 @@
     <!--nav bar-->
     <ul class="nav nav-pills nav-fill justify-content-center">
         <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="index.jsp">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="genre-list.html">Genres</a>
+            <a class="nav-link" href="genre-list.jsp">Genres</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="action.html">Recommendations</a>
+            <a class="nav-link active" href="action.jsp">Recommendations</a>
         </li>
     </ul>
     <!--content-->
@@ -42,6 +42,12 @@
         <h1 class="display-4"><i class="fas fa-list-ul"></i> Action Movies</h1>
     </div>
     <div class="container">
+        <!--actions-->
+        <ul class="nav nav-pills nav-fill justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link" href="add-form.jsp">Add new movie</a>
+            </li>
+        </ul>
         <ul class="list-group movie-list">
             <li class="list-group-item">
                 <div class="image-content">
@@ -60,6 +66,7 @@
                     </p>
                     <p class="view-more">
                         <a class="title-list" href="avengers.jsp" title="Avengers: Endgame">More Info</a>
+                        <a class="title-list" href="#">Edit</a>
                     </p>
                 </div>
             </li>
