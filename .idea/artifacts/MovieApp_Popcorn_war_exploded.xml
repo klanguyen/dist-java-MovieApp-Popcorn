@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="MovieApp-Popcorn:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/MovieApp_Popcorn_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="MovieApp-Popcorn/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="MovieApp-Popcorn" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
