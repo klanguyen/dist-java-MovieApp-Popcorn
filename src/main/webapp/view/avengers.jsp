@@ -36,7 +36,7 @@
     <!--content-->
     <div class="jumbotron my-2 border border-secondary">
         <div class="poster">
-            <img src="/resources/img/avengers-poster.jpg">
+            <img src="/main/webapp/resources/img/avengers-poster.jpg">
         </div>
         <div class="header_poster_wrapper">
             <section class="header poster">
