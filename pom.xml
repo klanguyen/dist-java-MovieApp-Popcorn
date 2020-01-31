@@ -7,6 +7,14 @@
     <groupId>edu.wctc</groupId>
     <artifactId>MovieApp-Popcorn</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.15.1.3</version>
+        </dependency>
+    </dependencies>
+
 
     <packaging>war</packaging>
 
