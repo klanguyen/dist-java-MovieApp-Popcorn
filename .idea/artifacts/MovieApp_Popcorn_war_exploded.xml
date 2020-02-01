@@ -14,7 +14,7 @@
           <element id="module-output" name="MovieApp-Popcorn" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: org.apache.derby:derby:10.15.1.3" />
+          <element id="library" level="project" name="Maven: org.apache.derby:derby:10.14.1.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">
