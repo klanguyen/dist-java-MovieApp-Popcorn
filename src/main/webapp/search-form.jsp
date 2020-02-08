@@ -12,7 +12,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-<form method="get" action="search">
+<form method="get" action="search2">
     <input type="text" placeholder="Enter a movie name" name="searchTerm"><br/><br/>
     <input type="submit" value="Search">
 </form>
