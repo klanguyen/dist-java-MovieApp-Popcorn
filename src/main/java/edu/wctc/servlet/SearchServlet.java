@@ -1,4 +1,4 @@
-package edu.wctc;
+package edu.wctc.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 
-@WebServlet(name = "ListServlet", urlPatterns = "/list")
-public class ListServlet extends HttpServlet {
+@WebServlet(name = "SearchServlet", urlPatterns = "/search")
+public class SearchServlet extends HttpServlet {
     private final String DATABASE_PATH = "../../db";
     private final String DRIVER_NAME = "jdbc:derby:";
     private final String USERNAME = "nnguyen1";
@@ -21,35 +21,44 @@ public class ListServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Connection conn = null;
-        Statement stmt = null;
+        PreparedStatement stmt = null;
         ResultSet rset = null;
+        String searchTerm = request.getParameter("searchTerm");
 
         try {
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 
             String absPath = getServletContext().getRealPath("/") + DATABASE_PATH;
 
-            //StringBuilder sql = new StringBuilder("Select movie_nm from movie ");
-            //sql.append("ORDER BY movie_nm");
+            String sql = "select movie_nm, overview, \"YEAR\" from KAYLA.MOVIE where movie_nm = ?";
 
             // create a connection
             conn = DriverManager.getConnection(DRIVER_NAME + absPath, USERNAME, PASSWORD);
             // create a statement to execute SQL
-            stmt = conn.createStatement();
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, searchTerm);
             // execute a SELECT query and get a result set
-            rset = stmt.executeQuery("Select movie_nm, \"YEAR\" from KAYLA.MOVIE order by movie_nm");
+            rset = stmt.executeQuery();
 
-            StringBuilder output = new StringBuilder("<html><body><ul>");
+            StringBuilder output = new StringBuilder("<html><body><table>");
+            output.append("<tr><th>Name</th><th>Overview</th><th>Year</th></tr>");
 
             while(rset.next()) {
-                output.append("<li>");
+                output.append("<tr>");
+
                 String movieName = rset.getString("movie_nm");
+                output.append("<td>" + movieName + "</td>");
+
+                String overview = rset.getString("overview");
+                output.append("<td>" + overview + "</td>");
+
                 int year = rset.getInt("year");
-                output.append(movieName + " - " + year);
-                output.append("</li>");
+                output.append("<td>" + year + "</td>");
+
+                output.append("</tr>");
             }
 
-            output.append("</ul></body></html>");
+            output.append("</table></body></html>");
 
             // send the html as the response
             response.setContentType("text/html");
