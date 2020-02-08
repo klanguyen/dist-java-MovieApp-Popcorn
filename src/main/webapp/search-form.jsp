@@ -11,9 +11,11 @@
     <title>Popcorn - Search</title>
 </head>
 <body>
+<jsp:include page="header.jsp"/>
 <form method="get" action="search">
     <input type="text" placeholder="Enter a movie name" name="searchTerm"><br/><br/>
     <input type="submit" value="Search">
 </form>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>
