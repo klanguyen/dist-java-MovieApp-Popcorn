@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>Movies</title>
-    <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+    <link rel="stylesheet" href="<c:url value="/resources/css/styles.css"/>" type="text/css">
 </head>
 <body>
 <jsp:include page="header.jsp"/>

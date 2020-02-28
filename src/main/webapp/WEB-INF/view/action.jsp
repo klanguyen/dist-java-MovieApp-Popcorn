@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: NguyenNguyen
@@ -13,7 +14,7 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!--css-->
-    <link rel="stylesheet" href="/main/webapp/resources/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
     <title>Popcorn - Action</title>
 </head>
 <body>
@@ -50,7 +51,7 @@
             <li class="list-group-item">
                 <div class="image-content">
                     <a href="avengers.jsp" title="Avengers: Endgame">
-                        <img src="/main/webapp/resources/img/avengers.jpg" alt="Avengers: Endgame" sizes="185px">
+                        <img src="<c:url value="/resources/img/avengers.jpg"/>" alt="Avengers: Endgame" sizes="185px"/>
                     </a>
                 </div>
                 <div class="info">
@@ -71,7 +72,7 @@
             <li class="list-group-item">
                 <div class="image-content">
                     <a href="hobbsandshaw.jsp" title="Fast & Furious Presents: Hobbs & Shaw">
-                        <img src="/main/webapp/resources/img/hobbsandshaw.jpg" alt="Fast & Furious Presents: Hobbs & Shaw" sizes="185px">
+                        <img src="<c:url value="/resources/img/hobbsandshaw.jpg"/>" alt="Fast & Furious Presents: Hobbs & Shaw" sizes="185px"/>
                     </a>
                 </div>
                 <div class="info">
@@ -91,7 +92,7 @@
             <li class="list-group-item">
                 <div class="image-content">
                     <a href="godzilla.jsp" title="Godzilla: King of the Monsters">
-                        <img src="/main/webapp/resources/img/godzilla.jpg" alt="Godzilla: King of the Monsters" sizes="185px">
+                        <img src="<c:url value="/resources/img/godzilla.jpg"/>" alt="Godzilla: King of the Monsters" sizes="185px"/>
                     </a>
                 </div>
                 <div class="info">
@@ -112,7 +113,7 @@
             <li class="list-group-item">
                 <div class="image-content">
                     <a href="johnwick3.jsp" title="John Wick: Chapter 3 – Parabellum">
-                        <img src="/main/webapp/resources/img/johnwick3.jpg" alt="John Wick: Chapter 3 – Parabellum" sizes="185px">
+                        <img src="<c:url value="/resources/img/johnwick3.jpg"/>" alt="John Wick: Chapter 3 – Parabellum" sizes="185px"/>
                     </a>
                 </div>
                 <div class="info">
