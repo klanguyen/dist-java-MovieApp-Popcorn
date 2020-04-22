@@ -15,10 +15,6 @@ public class HibernateApp {
 
     public HibernateApp(){
         factory = new Configuration().configure("hibernate.cfg.xml")
-                .addAnnotatedClass(FeaturedCrew.class)
-                .addAnnotatedClass(Genre.class)
-                .addAnnotatedClass(Movie.class)
-                .addAnnotatedClass(Position.class)
                 .buildSessionFactory();
     }
 
@@ -26,7 +22,7 @@ public class HibernateApp {
         HibernateApp hibernateApp = new HibernateApp();
 
         try {
-            hibernateApp.createFeaturedCrewAndPosition();
+            hibernateApp.listAllFeatureCrews();
         } finally {
             hibernateApp.close();
         }
