@@ -26,7 +26,10 @@
         <property name="current_session_context_class">thread</property>
 
         <!-- List the entity classes that contain table mappings -->
-
+        <mapping class="edu.wctc.entity.FeaturedCrew"/>
+        <mapping class="edu.wctc.entity.Genre"/>
+        <mapping class="edu.wctc.entity.Movie"/>
+        <mapping class="edu.wctc.entity.Position"/>
     </session-factory>
 
 </hibernate-configuration>
