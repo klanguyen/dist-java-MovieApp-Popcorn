@@ -1,49 +1,76 @@
-div {
-    display: block;
+html, body {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 0px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
-.list-group.movie-list {
-    justify-content: space-between;
+table {
+    border-collapse: collapse;
+    border-bottom: 1px solid gray;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    width: 72%;
 }
 
-.image-content {
-    overflow: hidden;
-    width: 185px;
-    height: 278px;
-    line-height: 0;
+th {
+    border-bottom: 1px solid gray;
+    background: none repeat scroll 0 0 #09c332;
+    padding: 10px;
+    color: #FFFFFF;
 }
 
-.list-group-item {
-    display: flex;
-    align-items: center;
+tr {
+    border-top: 1px solid gray;
+    text-align: center;
 }
 
-.info {
-    width: 298px;
-    height: 278px;
-    position: relative;
-    box-sizing: border-box;
-    padding: 10px 16px 16px 16px;
-    overflow: hidden;
+tr:nth-child(even) {
+    background: #FFFFFF
 }
 
-.wrapper {
-    display: flex;
+tr:nth-child(odd) {
+    background: #BBBBBB
 }
 
-.overview {
-    word-wrap: break-word;
-    white-space: normal;
-    color: #4d4d4d;
-    font-size: 0.9em;
-    line-height: 1.2em;
-    margin-top: 30px;
+#wrapper {
+    width: 100%;
+    margin-top: 0px;
 }
 
-.view-more {
-    border-top: 1px solid #e3e3e3;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 16px;
+#header {
+    width: 70%;
+    background: #09c332;
+    margin-top: 0px;
+    padding: 15px 0px 15px 15px;
+}
+
+#header h2 {
+    width: 100%;
+    margin: auto;
+    color: #FFFFFF;
+}
+
+#container {
+    width: 100%;
+    margin: auto
+}
+
+#container h3 {
+    color: #000;
+}
+
+#container #content {
+    margin-top: 20px;
+}
+
+.add-button {
+    border: 1px solid #666;
+    border-radius: 5px;
+    padding: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    width: 120px;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    background: #cccccc;
 }

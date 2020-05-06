@@ -1,28 +1,34 @@
 package edu.wctc.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "movie")
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "movie_id")
-    private int movieId;
+    private int id;
 
+    @NotNull(message = "required")
+    @Size(min = 1, message = "must be greater than 0")
     @Column(name = "movie_nm")
     private String name;
 
     @Column(name = "overview")
     private String overview;
-
-    @Column(name = "year")
-    private int year;
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH,
@@ -34,6 +40,7 @@ public class Movie {
             inverseJoinColumns = @JoinColumn(name = "featuredcrew_id"))
     private List<FeaturedCrew> featuredCrewList;
 
+    @NotNull
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH,
                     CascadeType.MERGE,
@@ -44,14 +51,9 @@ public class Movie {
             inverseJoinColumns = @JoinColumn(name = "genre_id"))
     private List<Genre> genres;
 
-    public Movie() {
-        //no-arg constructor
-    }
-
-    public Movie(String name, String overview, int year) {
+    public Movie(String name, String overview) {
         this.name = name;
         this.overview = overview;
-        this.year = year;
     }
 
     public void add(FeaturedCrew tempFeaturedCrew) {
@@ -59,14 +61,6 @@ public class Movie {
             featuredCrewList = new ArrayList<>();
         }
         featuredCrewList.add(tempFeaturedCrew);
-    }
-
-    public List<FeaturedCrew> getFeaturedCrewList(){
-        return featuredCrewList;
-    }
-
-    public void setFeaturedCrewLists(List<FeaturedCrew> featuredCrewList) {
-        this.featuredCrewList = featuredCrewList;
     }
 
     public void add(Genre tempGenre) {
@@ -84,12 +78,12 @@ public class Movie {
         this.genres = genres;
     }
 
-    public int getMovieId() {
-        return movieId;
+    public int getId() {
+        return id;
     }
 
-    public void setMovieId(int movieId) {
-        this.movieId = movieId;
+    public void setId(int movieId) {
+        this.id = movieId;
     }
 
     public String getName() {
@@ -106,23 +100,5 @@ public class Movie {
 
     public void setOverview(String overview) {
         this.overview = overview;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    @Override
-    public String toString() {
-        return "Movies{" +
-                "id=" + movieId +
-                ", name='" + name + '\'' +
-                ", overview=" + overview + '\'' +
-                ", year=" + year +
-                '}';
     }
 }

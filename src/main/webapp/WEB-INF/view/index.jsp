@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,20 +19,12 @@
 
     <ul class="nav nav-pills nav-fill justify-content-center">
         <li class="nav-item">
-            <a class="nav-link active" href="<c:url value="/"/>">Home</a>
+            <a href="/popcorn/movie/list">Movie List</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="<c:url value="/genres"/>">Genres</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<c:url value="/recommendations"/>">Recommendations</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<c:url value="/login"/>">Login</a>
+            <a class="nav-link" href="/popcorn/login">Login</a>
         </li>
     </ul>
-
-    <img src="<c:url value="/resources/img/avengers.jpg"/>" alt="Avengers: Endgame" sizes="185px"/>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

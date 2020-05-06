@@ -1,19 +1,24 @@
 package edu.wctc.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "genre")
 public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "genre_id")
-    private int genreId;
+    private int id;
 
     @Column(name = "description")
     private String description;
@@ -27,10 +32,6 @@ public class Genre {
             joinColumns = @JoinColumn(name = "genre_id"),
             inverseJoinColumns = @JoinColumn(name = "movie_id"))
     private List<Movie> movies;
-
-    public Genre() {
-        //no-arg constructor
-    }
 
     public Genre(String description) {
         this.description = description;
@@ -51,12 +52,12 @@ public class Genre {
         this.movies = movies;
     }
 
-    public int getGenreId() {
-        return genreId;
+    public int getId() {
+        return id;
     }
 
-    public void setGenreId(int genreId) {
-        this.genreId = genreId;
+    public void setId(int genreId) {
+        this.id = genreId;
     }
 
     public String getDescription() {
@@ -65,13 +66,5 @@ public class Genre {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    @Override
-    public String toString() {
-        return "Genres{" +
-                "id=" + genreId +
-                ", description='" + description + '\'' +
-                '}';
     }
 }
