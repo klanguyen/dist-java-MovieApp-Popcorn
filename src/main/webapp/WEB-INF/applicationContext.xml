@@ -53,6 +53,15 @@
         <property name="sessionFactory" ref="mySessionFactory"/>
     </bean>
 
+    <!-- Beans for converting from Strings to entity objects -->
+    <bean id="myConversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="edu.wctc.service.converter.StringToGenreConverter"/>
+            </list>
+        </property>
+    </bean>
+
     <!-- Enable transactional annotations -->
     <tx:annotation-driven transaction-manager="myTransactionManager"/>
 
@@ -62,7 +71,7 @@
     <context:component-scan base-package="edu.wctc.dao, edu.wctc.controller, edu.wctc.service"/>
 
     <!--support for conversion, formatting, validation-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="myConversionService"/>
 
     <!--redirect any request starting with /resources/ (including subdirectories)
     to the /resources/ folder-->

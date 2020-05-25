@@ -13,6 +13,11 @@
 
 <div id="container">
     <div id="content">
+        <button class="add-button"
+                onclick="window.location.href='${cp}/movie/showAddMovieForm'; return false;">
+            Add Movie
+        </button>
+
         <!--Search form-->
         <form:form method="GET" action="search">
             Search movies <input type="search" name="searchTerm">
@@ -41,7 +46,11 @@
                 </c:url>
 
                 <tr>
-                    <td>${tempMovie.genres.description}</td>
+                    <td>
+                        <c:forEach var="tempGenre" items="${tempMovie.genres}">
+                            ${tempGenre.description}&nbsp;
+                        </c:forEach>
+                    </td>
                     <td>${tempMovie.name}</td>
                     <td>${tempMovie.overview}</td>
                     <td>

@@ -41,7 +41,7 @@ public class Movie {
     private List<FeaturedCrew> featuredCrewList;
 
     @NotNull
-    @ManyToMany(fetch = FetchType.LAZY,
+    @ManyToMany(fetch = FetchType.EAGER,
             cascade = {CascadeType.DETACH,
                     CascadeType.MERGE,
                     CascadeType.PERSIST,

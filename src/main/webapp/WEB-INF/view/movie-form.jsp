@@ -34,8 +34,8 @@
                 <tr>
                     <td><label>Genre</label></td>
                     <td>
-                        <form:select path="genres" items="${genres}" itemLabel="name" itemValue="id"
-                                        cssClass="select-css">
+                        <form:select path="genres" items="${genres}" itemLabel="description" itemValue="id"
+                                        cssClass="select-css" multiple="true">
                         </form:select>
                         <form:errors path="genres" cssClass="error"/>
                     </td>
