@@ -5,25 +5,58 @@
   Time: 8:16 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <title>Popcorn - Login</title>
+    <title>Popcorn - Login </title>
+    <link type="text/css" rel="stylesheet" href="${cp}/resources/css/style.css">
+    <link type="text/css" rel="stylesheet" href="${cp}/resources/css/movie-form-style.css">
+    <link type="text/css" rel="stylesheet" href="${cp}/resources/css/select-style.css">
 </head>
 <body>
+<%@ include file="/WEB-INF/view/header.jsp"%>
+
 <div class="container">
-    <div class="row">
-        <div class="col align-self-center">
-            <h1 class="display-4"><i class="fas fa-couch"></i> POPCORN</h1>
-        </div>
+    <div id="content">
+        <h3>Login</h3>
+        <form:form action="${cp}/authenticate" method="POST">
+            <table>
+                <!-- Only show this message if the user has been logged out -->
+                <c:if test="${param.logout != null}">
+                    <tr>
+                        <td></td>
+                        <td>You have been logged out</td>
+                    </tr>
+                </c:if>
+                <tr>
+                    <td><label>Username</label></td>
+                    <!-- Spring expect this to have name="username" -->
+                    <td><input type="text" name="username"></td>
+                </tr>
+                <tr>
+                    <td><label>Password</label></td>
+                    <!-- Spring expect this to have name="password" -->
+                    <td><input type="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Login"></td>
+                </tr>
+                <!-- Only show this row if there was a login error -->
+                <c:if test="${param.error != null}">
+                    <tr>
+                        <td></td>
+                        <td class="error">Invalid login</td>
+                    </tr>
+                </c:if>
+            </table>
+        </form:form>
     </div>
-    <input type="text" name="username" value="Username">
-    <input type="password" name="password" value="Password">
-    <button type="submit">Login</button>
+
+    <%@ include file="/WEB-INF/view/footer.jsp"%>
 </div>
 
 </body>

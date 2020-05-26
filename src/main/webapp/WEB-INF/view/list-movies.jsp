@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
 <html>
@@ -13,10 +14,13 @@
 
 <div id="container">
     <div id="content">
-        <button class="add-button"
-                onclick="window.location.href='${cp}/movie/showAddMovieForm'; return false;">
-            Add Movie
-        </button>
+        <!-- Only show add movie button if user is logged in -->
+        <security:authorize access="hasRole('USER')">
+            <button class="add-button"
+                    onclick="window.location.href='${cp}/movie/user/showAddMovieForm'; return false;">
+                Add Movie
+            </button>
+        </security:authorize>
 
         <!--Search form-->
         <form:form method="GET" action="search">
@@ -30,18 +34,21 @@
                 <th>Genre</th>
                 <th>Name</th>
                 <th>Overview</th>
-                <th>Action</th>
+                <!-- Only show table header if user is logged in -->
+                <security:authorize access="hasAnyRole('USER,ADMIN')">
+                    <th>Action</th>
+                </security:authorize>
             </tr>
 
             <c:forEach var="tempMovie" items="${movies}">
                 <!--construct an update link with movie id-->
                 <!--c:url is same as JSP's response.encodeURL()-->
-                <c:url var="updateLink" value="/movie/showUpdateMovieForm">
+                <c:url var="updateLink" value="/movie/user/showUpdateMovieForm">
                     <c:param name="movieId" value="${tempMovie.id}"/>
                 </c:url>
 
                 <!--construct a delete link with movie id-->
-                <c:url var="deleteLink" value="/movie/delete">
+                <c:url var="deleteLink" value="/movie/admin/delete">
                     <c:param name="movieId" value="${tempMovie.id}"/>
                 </c:url>
 
@@ -53,12 +60,19 @@
                     </td>
                     <td>${tempMovie.name}</td>
                     <td>${tempMovie.overview}</td>
-                    <td>
-                        <a href="${updateLink}">Update</a>
-                        &nbsp;|&nbsp;
-                        <a href="${deleteLink}"
-                           onclick="if(!confirm('Are you sure?')) return false">Delete</a>
-                    </td>
+                    <!-- Only show this last cell if the user is logged in -->
+                    <security:authorize access="hasAnyRole('USER,ADMIN')">
+                        <td>
+                            <!-- Display the update link -->
+                            <a href="${updateLink}">Update</a>
+                            <!-- Only display the delete link if user is admin -->
+                            <security:authorize access="hasRole('ADMIN')">
+                                &nbsp;|&nbsp;
+                                <a href="${deleteLink}"
+                                   onclick="if(!confirm('Are you sure?')) return false">Delete</a>
+                            </security:authorize>
+                        </td>
+                    </security:authorize>
                 </tr>
             </c:forEach>
 

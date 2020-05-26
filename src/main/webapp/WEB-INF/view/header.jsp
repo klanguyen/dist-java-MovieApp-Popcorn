@@ -5,6 +5,18 @@
     <div id="header">
         <h2>Movie Library</h2>
 
+        <!-- If the user is not logged in, display a login link -->
+        <!-- If the user is logged in, display their username and a logout link -->
+        <c:choose>
+            <c:when test="${pageContext.request.userPrincipal != null}">
+                Hello <strong>${pageContext.request.userPrincipal.name}</strong>
+                &nbsp;|&nbsp;
+                <a href="${cp}/logout">Logout</a>
+            </c:when>
 
+            <c:otherwise>
+                <a href="${cp}/showLoginForm">Login</a>
+            </c:otherwise>
+        </c:choose>
     </div>
 </div>

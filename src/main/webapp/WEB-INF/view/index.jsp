@@ -21,9 +21,6 @@
         <li class="nav-item">
             <a href="/popcorn/movie/list">Movie List</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/popcorn/login">Login</a>
-        </li>
     </ul>
 </div>
 

@@ -43,14 +43,14 @@ public class MovieController {
         return "/list-movies";
     }
 
-    @GetMapping("/delete")
+    @GetMapping("/admin/delete")
     public String deleteMovie(@RequestParam("movieId") int theId) {
         movieService.deleteMovie(theId);
 
         return "redirect:/movie/list";
     }
 
-    @RequestMapping("/showUpdateMovieForm")
+    @RequestMapping("/user/showUpdateMovieForm")
     public String showUpdateMovieForm(@RequestParam("movieId") int theId,
                                       Model theModel) {
         Movie existingMovie = movieService.getMovie(theId);
@@ -61,7 +61,7 @@ public class MovieController {
         return "/movie-form";
     }
 
-    @RequestMapping("/showAddMovieForm")
+    @RequestMapping("/user/showAddMovieForm")
     public String showAddMovieForm(Model theModel) {
         Movie newMovie = new Movie();
 
@@ -71,7 +71,7 @@ public class MovieController {
         return "/movie-form";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/user/save")
     public String saveMovie(@Valid @ModelAttribute("aMovie") Movie theMovie,
                             BindingResult bindingResult,
                             Model theModel) {

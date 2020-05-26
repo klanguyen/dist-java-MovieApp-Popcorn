@@ -16,7 +16,7 @@
 
 <div id="container">
     <div id="content">
-        <form:form action="${cp}/movie/save" modelAttribute="aMovie" enctype="multipart/form-data"
+        <form:form action="${cp}/movie/user/save" modelAttribute="aMovie" enctype="multipart/form-data"
                    method="post">
             <form:hidden path="id" value="${aMovie.id}"/>
 
