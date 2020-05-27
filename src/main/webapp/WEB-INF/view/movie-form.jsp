@@ -16,20 +16,19 @@
 
 <div id="container">
     <div id="content">
-        <form:form action="${cp}/movie/user/save" modelAttribute="aMovie" enctype="multipart/form-data"
-                   method="post">
+        <form:form action="${cp}/movie/user/save" modelAttribute="aMovie" method="post">
             <form:hidden path="id" value="${aMovie.id}"/>
 
             <table>
                 <tr>
                     <td><label>Name</label></td>
                     <td><form:input path="name"/>
-                        <form:errors path="name" cssClass="error"/></td>
+                        <form:errors path="name" cssClass="error"/>
                 </tr>
                 <tr>
                     <td><label>Overview</label></td>
                     <td><form:input path="overview"/>
-                        <form:errors path="overview" cssClass="error"/></td>
+                        <form:errors path="overview" cssClass="error"/>
                 </tr>
                 <tr>
                     <td><label>Genre</label></td>

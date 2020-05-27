@@ -69,8 +69,6 @@ create table featuredcrew_position
 		primary key (featuredcrew_id, position_id)
 );
 
-alter table MOVIE
-	add column "Year" int;
 
 create table USERS(
     username varchar(50) not null constraint user_pk primary key,

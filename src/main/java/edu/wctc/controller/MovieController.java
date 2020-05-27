@@ -63,9 +63,9 @@ public class MovieController {
 
     @RequestMapping("/user/showAddMovieForm")
     public String showAddMovieForm(Model theModel) {
-        Movie newMovie = new Movie();
+        Movie theMovie = new Movie();
 
-        theModel.addAttribute("aMovie", newMovie);
+        theModel.addAttribute("aMovie", theMovie);
         theModel.addAttribute("genres", genreService.getGenres());
 
         return "/movie-form";
