@@ -1,0 +1,23 @@
+{
+  "id": 201,
+  "name": "Spies In Disguise",
+  "overview": "A spy turns into a pigeon.",
+  "featuredCrewList": null,
+  "genres": [
+    {
+      "id": 1,
+      "description": "Action",
+      "movies": null
+    },
+    {
+      "id": 2,
+      "description": "Comedy",
+      "movies": null
+    },
+    {
+      "id": 7,
+      "description": "Animation",
+      "movies": null
+    }
+  ]
+}
